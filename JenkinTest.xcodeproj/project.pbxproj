@@ -13,7 +13,18 @@
 		8BCEF7E923267B0600F9D7CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BCEF7E823267B0600F9D7CA /* Assets.xcassets */; };
 		8BCEF7EC23267B0600F9D7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCEF7EA23267B0600F9D7CA /* LaunchScreen.storyboard */; };
 		8BCEF7EF23267B0600F9D7CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEF7EE23267B0600F9D7CA /* main.m */; };
+		F12F3977232ADCCB00251F0E /* JenkinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F12F3976232ADCCB00251F0E /* JenkinTestTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F12F3979232ADCCB00251F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BCEF7D423267AFD00F9D7CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BCEF7DB23267AFD00F9D7CA;
+			remoteInfo = JenkinTest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8BCEF7DC23267AFD00F9D7CA /* JenkinTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JenkinTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,10 +41,20 @@
 		8BCEF7FA23267B0600F9D7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BCEF80323267B0600F9D7CA /* JenkinTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JenkinTestUITests.m; sourceTree = "<group>"; };
 		8BCEF80523267B0600F9D7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F12F3974232ADCCB00251F0E /* JenkinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JenkinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12F3976232ADCCB00251F0E /* JenkinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JenkinTestTests.m; sourceTree = "<group>"; };
+		F12F3978232ADCCB00251F0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8BCEF7D923267AFD00F9D7CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F12F3971232ADCCB00251F0E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,6 +70,7 @@
 				8BCEF7DE23267AFD00F9D7CA /* JenkinTest */,
 				8BCEF7F723267B0600F9D7CA /* JenkinTestTests */,
 				8BCEF80223267B0600F9D7CA /* JenkinTestUITests */,
+				F12F3975232ADCCB00251F0E /* JenkinTestTests */,
 				8BCEF7DD23267AFD00F9D7CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				8BCEF7DC23267AFD00F9D7CA /* JenkinTest.app */,
+				F12F3974232ADCCB00251F0E /* JenkinTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +118,15 @@
 			path = JenkinTestUITests;
 			sourceTree = "<group>";
 		};
+		F12F3975232ADCCB00251F0E /* JenkinTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				F12F3976232ADCCB00251F0E /* JenkinTestTests.m */,
+				F12F3978232ADCCB00251F0E /* Info.plist */,
+			);
+			path = JenkinTestTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +147,24 @@
 			productReference = 8BCEF7DC23267AFD00F9D7CA /* JenkinTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F12F3973232ADCCB00251F0E /* JenkinTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F12F397B232ADCCB00251F0E /* Build configuration list for PBXNativeTarget "JenkinTestTests" */;
+			buildPhases = (
+				F12F3970232ADCCB00251F0E /* Sources */,
+				F12F3971232ADCCB00251F0E /* Frameworks */,
+				F12F3972232ADCCB00251F0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F12F397A232ADCCB00251F0E /* PBXTargetDependency */,
+			);
+			name = JenkinTestTests;
+			productName = JenkinTestTests;
+			productReference = F12F3974232ADCCB00251F0E /* JenkinTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -126,6 +176,10 @@
 				TargetAttributes = {
 					8BCEF7DB23267AFD00F9D7CA = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					F12F3973232ADCCB00251F0E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 8BCEF7DB23267AFD00F9D7CA;
 					};
 				};
 			};
@@ -143,6 +197,7 @@
 			projectRoot = "";
 			targets = (
 				8BCEF7DB23267AFD00F9D7CA /* JenkinTest */,
+				F12F3973232ADCCB00251F0E /* JenkinTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -155,6 +210,13 @@
 				8BCEF7EC23267B0600F9D7CA /* LaunchScreen.storyboard in Resources */,
 				8BCEF7E923267B0600F9D7CA /* Assets.xcassets in Resources */,
 				8BCEF7E723267AFD00F9D7CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F12F3972232ADCCB00251F0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +233,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F12F3970232ADCCB00251F0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12F3977232ADCCB00251F0E /* JenkinTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F12F397A232ADCCB00251F0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BCEF7DB23267AFD00F9D7CA /* JenkinTest */;
+			targetProxy = F12F3979232ADCCB00251F0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8BCEF7E523267AFD00F9D7CA /* Main.storyboard */ = {
@@ -343,6 +421,49 @@
 			};
 			name = Release;
 		};
+		F12F397C232ADCCB00251F0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = G385A2CHPU;
+				INFOPLIST_FILE = JenkinTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = aman.com.JenkinTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JenkinTest.app/JenkinTest";
+			};
+			name = Debug;
+		};
+		F12F397D232ADCCB00251F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = G385A2CHPU;
+				INFOPLIST_FILE = JenkinTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = aman.com.JenkinTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JenkinTest.app/JenkinTest";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -360,6 +481,15 @@
 			buildConfigurations = (
 				8BCEF80923267B0600F9D7CA /* Debug */,
 				8BCEF80A23267B0600F9D7CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F12F397B232ADCCB00251F0E /* Build configuration list for PBXNativeTarget "JenkinTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F12F397C232ADCCB00251F0E /* Debug */,
+				F12F397D232ADCCB00251F0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

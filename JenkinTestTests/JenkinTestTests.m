@@ -2,7 +2,7 @@
 //  JenkinTestTests.m
 //  JenkinTestTests
 //
-//  Created by Paramjeet Kaur on 09/09/19.
+//  Created by Paramjeet Kaur on 13/09/19.
 //  Copyright © 2019 Paramjeet Kaur. All rights reserved.
 //
 
@@ -15,11 +15,13 @@
 @implementation JenkinTestTests
 
 - (void)setUp {
+    [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
 }
 
 - (void)testExample {
