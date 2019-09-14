@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        xcodeBuild(buildIpa: true, ipaName: 'Test', bundleID: 'com.btor.JenkinTest', configuration: 'Development', xcodeSchema: 'JenkinTest')
+        xcodeBuild(buildIpa: true, ipaName: 'Test', bundleID: 'com.btor.JenkinTest', configuration: 'Debug', xcodeSchema: 'JenkinTest', ipaExportMethod: 'Development')
       }
     }
   }
