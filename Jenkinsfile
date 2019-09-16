@@ -2,8 +2,9 @@ pipeline {
   agent any
   stages {
     stage('build') {
+                  sh 'xcodebuild -scheme "JenkinTest" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=10.1" -enableCodeCoverage YES | /usr/local/bin/xcpretty -r junit'
       steps {
-        xcodeBuild(buildIpa: true, ipaName: 'Test', bundleID: 'com.btor.JenkinTest', configuration: 'Debug', xcodeSchema: 'JenkinTest', ipaExportMethod: 'development', provisioningProfiles: [[provisioningProfileAppId:'com.btor.JenkinTest', provisioningProfileUUID:'1aff35f0-30ee-473d-bad6-534d4ab28e4c']], manualSigning: true, xcodebuildArguments: 'test -destination \'platform=iOS Simulator,name=iPhone 6,OS=11.4\'')
+			$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'	
       }
     }
   }
