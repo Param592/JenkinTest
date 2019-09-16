@@ -8,8 +8,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh '''sh \'test -destination "platform=iOS Simulator,name=iPhone 6,OS=10.1" -enableCodeCoverage YES | /usr/local/bin/xcpretty -r junit\'
-'''
+        sh 'sh \'test -destination "platform=iOS Simulator,name=iPhone 6,OS=10.1" -enableCodeCoverage YES\''
       }
     }
   }
