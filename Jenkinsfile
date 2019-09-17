@@ -31,14 +31,16 @@ node('master') {
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'html', reportFiles: 'index.html', reportName: 'Coverage Report'])
         
             
-        }, Checkstyle: {
+        }, 
+            //Checkstyle: {
 
             // Generate Checkstyle report
-            sh '/usr/local/bin/oclint -json-compilation-database -- -report-type pmd -o oclient.xml'
+            //sh '/usr/local/bin/oclint -json-compilation-database -- -report-type pmd -o oclient.xml'
     
             // Publish checkstyle result
-            step([$class: 'PMD', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'oclient.xml', unHealthy: ''])
-        }, failFast: true|false   
+            //step([$class: 'PMD', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'oclient.xml', unHealthy: ''])
+        //}, 
+        failFast: true|false   
     }
 
     stage ('Notify') {
