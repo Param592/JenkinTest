@@ -1,10 +1,48 @@
-pipeline {
-  agent any
-  stages {
-    stage('build') {
-      steps {
-        xcodeBuild(bundleID: 'com.btor.JenkinTest', configuration: 'Debug', ipaExportMethod: 'development', manualSigning: true, xcodeSchema: 'JenkinTest', provisioningProfiles:[[provisioningProfileAppId:'com.btor.JenkinTest', provisioningProfileUUID:'8d50d73e-8533-42b0-908e-00126132a120']], buildIpa: true, ipaName: 'dev')
-      }
+node('master') {
+
+    stage('Checkout/Build/Test') {
+
+        // Checkout files.
+        checkout([
+            $class: 'GitSCM',
+            branches: [[name: 'master']],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [], submoduleCfg: [],
+            userRemoteConfigs: [[
+                name: 'github',
+                url: 'https://github.com/Param592/JenkinTest.git'
+            ]]
+        ])
+
+        // Build and Test
+        sh 'xcodebuild -scheme "JenkinTest" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=12.1" -enableCodeCoverage YES | /usr/local/bin/xcpretty -r junit'
+
+        // Publish test restults.
+        step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
     }
-  }
+
+    stage('Analytics') {
+        
+        parallel Coverage: {
+            // Generate Code Coverage report
+            sh '/usr/local/bin/slather coverage --jenkins --html --scheme JenkinTest JenkinTest.xcodeproj/'
+    
+            // Publish coverage results
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'html', reportFiles: 'index.html', reportName: 'Coverage Report'])
+        
+            
+        }, Checkstyle: {
+
+            // Generate Checkstyle report
+            sh '/usr/local/bin/oclint lint --reporter checkstyle > checkstyle.xml || true'
+    
+            // Publish checkstyle result
+            step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
+        }, failFast: true|false   
+    }
+
+    stage ('Notify') {
+        // Send slack notification
+        //slackSend channel: '#my-team', message: 'JenkinTest - Successfully', teamDomain: 'my-team', token: 'my-token'
+    }
 }
