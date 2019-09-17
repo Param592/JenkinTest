@@ -34,10 +34,10 @@ node('master') {
         }, Checkstyle: {
 
             // Generate Checkstyle report
-            sh '/usr/local/bin/oclint lint --reporter checkstyle > checkstyle.xml || true'
+            sh '/usr/local/bin/oclint -json-compilation-database -- -report-type pmd -o oclient.xml'
     
             // Publish checkstyle result
-            step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
+            step([$class: 'PMD', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'oclient.xml', unHealthy: ''])
         }, failFast: true|false   
     }
 
